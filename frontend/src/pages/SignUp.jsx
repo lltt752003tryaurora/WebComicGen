@@ -1,18 +1,20 @@
-import React from 'react'
-import { SignUpComponent } from '../components/SignUp/SignUp'
+import React from "react";
+import { SignUpComponent } from "../components/SignUp/SignUp";
+import SignUpAnimation from "@/components/SignUp/SignUpAnimation";
 
 function SignUp() {
-    return (
-        <div className='flex justify-center items-center min-h-full bg-center bg-cover bg-no-repeat py-32' 
-        style={{
-            backgroundImage: `url(https://user-images.githubusercontent.com/13468728/233847739-219cb494-c265-4554-820a-bd3424c59065.jpg)`,
-          }}>
-        
+  return (
+    <div className="grid grid-cols-2 h-screen pt-5">
+      {/* animation */}
+      <div className="layout_animation flex justi items-center bg-slate-500">
+        <SignUpAnimation />
+      </div>
+      {/* sign up form */}
+      <div className="layout_signupForm">
         <SignUpComponent />
-        
-        </div>
-    )
+      </div>
+    </div>
+  );
 }
 
-
-export default SignUp
+export default SignUp;

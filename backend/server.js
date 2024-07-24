@@ -10,13 +10,13 @@ const app = express()
 
 //Middlewares
 app.use(cors({
-    origin: 'https://kahani-teal.vercel.app' // Allow requests from this origin
+    origin: '*' // Allow requests from this origin
 }));
 app.use(express.json())
 
 //Set Routes
-app.use('/api/user',userRoutes)
-app.use('/api/kahani',storyRoutes);
+app.use('/api/user', userRoutes)
+app.use('/api/kahani', storyRoutes);
 
 mongoose.connect(process.env.MONGODB_URI).
     then((response) => {

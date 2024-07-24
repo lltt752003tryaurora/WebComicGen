@@ -1,18 +1,20 @@
-import React from 'react'
-import { LoginComponent } from '../components/Login/Login'
+import React from "react";
+import { LoginComponent } from "../components/Login/Login";
+import LoginAnimation from "@/components/Login/LoginAnimation";
 
 function Login() {
-    return (
-        <div className='flex justify-center items-center min-h-full bg-center bg-cover bg-no-repeat py-32' 
-        style={{
-            backgroundImage: `url(https://user-images.githubusercontent.com/13468728/233847739-219cb494-c265-4554-820a-bd3424c59065.jpg)`,
-          }}>
-        
+  return (
+    <div className="grid grid-cols-2 h-screen">
+      {/* animation */}
+      <div className="layout_animation flex justi items-center bg-slate-500">
+        <LoginAnimation />
+      </div>
+      {/* login form */}
+      <div className="layout_loginForm bg-slate-800">
         <LoginComponent />
-        
-        </div>
-    )
+      </div>
+    </div>
+  );
 }
 
-
-export default Login
+export default Login;

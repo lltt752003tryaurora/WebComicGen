@@ -1,71 +1,108 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { useForm } from "react-hook-form"
-import { useLogin } from "@/hooks/useLogin"
-import { ReloadIcon } from "@radix-ui/react-icons"
-
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { useForm } from "react-hook-form";
+import { useLogin } from "@/hooks/useLogin";
+import React, { useState } from "react";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 export function LoginComponent() {
-  const { register, handleSubmit } = useForm();
-  const {login,error,loading} = useLogin();
-
-  const loginUser = async (data) => {
-    await login(data)
-  }
-
+  const [showPassword, setShowPassword] = useState(false);
   return (
-    <Card className="mx-auto bg-transparent backdrop-blur-55 text-white md:w-[30%] font-poppins">
-      <CardHeader>
-        <CardTitle className="text-3xl font-bold text-center pb-6">Login</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form className="grid gap-4" onSubmit={handleSubmit(loginUser)}>
-          <div className="grid gap-2 pb-2">
-            <Label htmlFor="email">Email</Label>
-            <input 
-            id="email"
-            type="email" 
-            required
-            {...register("email",{required:true})}
-            className=' bg-transparent border-0 border-b-2 rounded-none h-3/4 py-1 pl-1 hover:bg-transparent hover:border-b-2 hover:border-current focus:outline-none'
-            />
-          </div>
-          <div className="grid gap-2 pb-6">
-            <div className="flex items-center">
-              <Label htmlFor="password">Password</Label>
-            </div>
-            <input 
-            id="password"
-            type="password" 
-            required
-            {...register("password",{required:true})}
-            className=' bg-transparent border-0 border-b-2 rounded-none h-3/4 py-1 pl-1 hover:bg-transparent hover:border-b-2 hover:border-current focus:outline-none'
-            />
-          </div>
-          {loading ? <Button disabled>
-            <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
-            Please wait
-          </Button> : <Button type="submit" className="w-full text-black bg-white hover:bg-white hover:opacity-80 rounded-lg">
-            Login
-          </Button>}
-          {error ? <p className="text-red-600 text-center">{error}</p> : ""}
+    <section className="dark:bg-brown-900">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <Link
+          to={"/"}
+          className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+          rel="noreferrer"
+        >
+          <i className="fa-solid fa-diagram-project text-white hover:text-slate-500 hover:underline">
+            {" "}
+            Comic Gen
+          </i>
+        </Link>
+        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8 border-amber-600 shadow-2xl">
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              Sign in with your email
+            </h1>
+            <form onSubmit={"handleSubmit"} className="space-y-4 md:space-y-6">
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  <i className="fa-regular fa-user"></i>
+                  <span className="text-base"> Email</span>
+                </label>
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Enter the email"
+                  // onChange={handleChange}
+                  // onBlur={handleBlur}
+                />
+                {/* {touched.email && errors.email ? (
+                  <p className="text-red-500 mt-2">{errors.email}</p>
+                ) : null} */}
+              </div>
+              <div className="md:col-span-5 relative">
+                <label
+                  htmlFor="password"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  <i className="fa-solid fa-lock"></i>
+                  <span className="text-base"> Password</span>
+                </label>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  id="password"
+                  placeholder="••••••••"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 relative z-0"
+                  // onChange={handleChange}
+                  // onBlur={handleBlur}
+                />
+                <div
+                  className="absolute top-9 right-4 cursor-pointer z-10"
+                  onClick={() => {
+                    setShowPassword(!showPassword);
+                  }}
+                >
+                  {showPassword ? (
+                    <i class="fa-regular fa-eye hover:text-green-500 transition-all ease-in"></i>
+                  ) : (
+                    <i class="fa-regular fa-eye-slash hover:text-red-500 transition-all ease-in"></i>
+                  )}
+                </div>
+                {/* {touched.password && errors.password ? (
+                  <p className="text-red-500 mt-2">{errors.password}</p>
+                ) : null} */}
+              </div>
 
-        </form>
-        <div className="mt-4 text-center text-sm pb-8">
-          Don&apos;t have an account?{" "}
-          <Link to='/signup' className="underline">
-            Sign up
-          </Link>
+              <button
+                type="submit"
+                className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-xl text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-primary-800 ease-in duration-300"
+              >
+                Sign in
+              </button>
+              <p className="text-sm font-medium text-white">
+                Don’t have an account yet?{" "}
+                <Link
+                  to={"/sign-up"}
+                  className="font-medium text-primary-600 underline dark:text-primary-500 hover:text-green-300 duration-100"
+                >
+                  Sign up
+                </Link>
+              </p>
+            </form>
+          </div>
         </div>
-      </CardContent>
-    </Card>
-  )
+      </div>
+    </section>
+  );
 }
