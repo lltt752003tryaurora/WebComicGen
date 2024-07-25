@@ -1,1 +1,1 @@
-export const baseUrl = 'http://localhost:4000'
+export const baseUrl = 'https://csc13010-comicgen.onrender.com/'
