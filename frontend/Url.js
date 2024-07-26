@@ -1,1 +1,0 @@
-export const baseUrl = 'https://csc13010-comicgen.onrender.com/'

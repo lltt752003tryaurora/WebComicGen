@@ -1,19 +1,18 @@
-import { useAuthContext } from '@/hooks/useAuthContext'
-import React, { Children } from 'react'
-import { Navigate } from 'react-router-dom'
+// import React, { Children } from 'react'
+// import { Navigate } from 'react-router-dom'
 
-function PublicRoutes({children}) {
-    const {user,isLoading} = useAuthContext()
+// function PublicRoutes({children}) {
+//     // const {user,isLoading} = useAuthContext()
     
-    if(isLoading){
-        return <div>Is Loading</div>
-    }
+//     if(isLoading){
+//         return <div>Is Loading</div>
+//     }
  
-    if(user){
-        return <Navigate to= {'/dashboard'} />
-    }
+//     if(user){
+//         return <Navigate to= {'/dashboard'} />
+//     }
 
-    return children
-}
+//     return children
+// }
 
-export default PublicRoutes
+// export default PublicRoutes

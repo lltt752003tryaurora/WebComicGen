@@ -1,10 +1,7 @@
 // src/components/Dashboard/CreateStory.jsx
 import React, { useState } from 'react';
 import { Input } from '../ui/input';
-import { Button } from '../ui/button';
-import { ReloadIcon } from "@radix-ui/react-icons";
-import { useGenerateStory } from '@/hooks/useGenerateStory';
-import { useOutletContext } from 'react-router-dom';
+
 
 function CreateStory() {
     // const [prompt, setPrompt] = useState("");

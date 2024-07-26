@@ -199,7 +199,7 @@ export function SignUpComponent() {
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?<span> </span>
                 <Link
-                  to={"/sign-in"}
+                  to={"/log-in"}
                   className="font-medium text-primary-600 underline dark:text-primary-500 hover:text-green-400 duration-300"
                 >
                   Sign in

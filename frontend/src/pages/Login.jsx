@@ -1,6 +1,6 @@
 import React from "react";
 import { LoginComponent } from "../components/Login/Login";
-import LoginAnimation from "@/components/Login/LoginAnimation";
+import LoginAnimation from "../components/Login/LoginAnimation";
 
 function Login() {
   return (

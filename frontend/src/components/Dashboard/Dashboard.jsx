@@ -11,15 +11,15 @@ import {
   ShoppingCart,
   Users,
 } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from "../ui/badge"
+import { Button } from "../ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "../ui/card"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,10 +27,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { useAuthContext } from "@/hooks/useAuthContext"
-import { useLogout } from "@/hooks/useLogout"
+} from "../ui/dropdown-menu"
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { useContext, useState } from "react"
 
 

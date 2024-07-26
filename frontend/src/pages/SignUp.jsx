@@ -1,6 +1,6 @@
 import React from "react";
 import { SignUpComponent } from "../components/SignUp/SignUp";
-import SignUpAnimation from "@/components/SignUp/SignUpAnimation";
+import SignUpAnimation from "../components/SignUp/SignUpAnimation";
 
 function SignUp() {
   return (

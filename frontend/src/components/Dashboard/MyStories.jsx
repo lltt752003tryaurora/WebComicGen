@@ -1,21 +1,19 @@
 import React, { useContext } from 'react'
 import { Button } from '../ui/button'
 import StoryCard from './StoryCard'
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea } from "../ui/scroll-area"
 import { Link } from 'react-router-dom'
-import { StoriesContext } from '../../context/StoriesContext'
-import { useAuthContext } from '@/hooks/useAuthContext'
 
 
 function MyStories() {
-  const { stories } = useContext(StoriesContext)
-  const { user } = useAuthContext();
+  // const { stories } = useContext(StoriesContext)
+  // const { user } = useAuthContext();
 
   let userStories = [];
 
-  if(stories){
-    userStories = stories.filter((story) => story.user_id === user._id)
-  }
+  // if(stories){
+  //   userStories = stories.filter((story) => story.user_id === user._id)
+  // }
   
   if (!userStories || userStories.length === 0) {
     return (

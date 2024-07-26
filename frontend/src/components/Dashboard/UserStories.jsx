@@ -1,15 +1,12 @@
-import { StoriesContext } from '@/context/StoriesContext';
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useAuthContext } from '@/hooks/useAuthContext';
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import StoryCard from './StoryCard';
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea } from "../ui/scroll-area"
 
 function UserStories() {
     const { user_id } = useParams();
     const { stories } = useContext(StoriesContext);
-    const { user } = useAuthContext();
 
     const userStories = stories.filter((story) => story.user_id === user_id);
     const userObject = user.find((elem) => elem._id === user_id);

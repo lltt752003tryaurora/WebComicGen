@@ -1,17 +1,17 @@
 import React, { useContext } from 'react'
 import { Button } from '../ui/button'
 import StoryCard from './StoryCard'
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea } from ".././ui/scroll-area"
 import { Link } from 'react-router-dom'
-import { StoriesContext } from '../../context/StoriesContext'
+// import { StoriesContext } from '../../context/StoriesContext'
 
 function AllStories() {
-  const { stories } = useContext(StoriesContext);
+  // const { stories } = useContext(StoriesContext);
   let publicStories = [];
   
-  if(stories){
-    publicStories = stories.filter((story) => story.status === 'public')
-  }
+  // if(stories){
+  //   publicStories = stories.filter((story) => story.status === 'public')
+  // }
   
   if (!publicStories || publicStories.length === 0) { 
     return (
