@@ -11,8 +11,6 @@ const SignUpAnimation = () => {
       animationData={signupAnimation}
       height={400}
       width={400}
-      // isStopped={this.state.isStopped}
-      // isPaused={this.state.isPaused}
     />
   );
 };

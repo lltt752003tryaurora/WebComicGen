@@ -4,7 +4,7 @@ import SignUpAnimation from "../components/SignUp/SignUpAnimation";
 
 function SignUp() {
   return (
-    <div className="grid grid-cols-2 h-screen pt-5">
+    <div className="grid grid-cols-2 h-screen">
       {/* animation */}
       <div className="layout_animation flex justi items-center bg-slate-500">
         <SignUpAnimation />
